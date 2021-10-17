@@ -1,0 +1,24 @@
+{
+  "name": "boilerplate",
+  "version": "1.0.0",
+  "description": "Boilerplate for learning React, Node.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/L-Hyun/react-boilerplate.git"
+  },
+  "author": "L-Hyun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/L-Hyun/react-boilerplate/issues"
+  },
+  "homepage": "https://github.com/L-Hyun/react-boilerplate#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.0.11"
+  }
+}

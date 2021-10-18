@@ -27,9 +27,11 @@ app.post('/register', (req, res) => {
   const user = new User(req.body)
   //가져온 유저 데이터 저장
   user.save((err, doc) => {
+    //에러 발생 시 json형태로 err 반환
     if (err) return res.json({ success: false, err})
+    // 성공 시 http 200 코드와 success True를 가지는 json 반환
     return res.status(200).json({
-      sucess: true
+      success: true
     })
   })
 

@@ -15,7 +15,7 @@ mongoose.connect('mongodb+srv://LHyun:c7Bb3hZKdv3MiRVU@boilerplate.p91ny.mongodb
 }).then(() => console.log('connected')).catch((err) => console.log('error'))
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.send('Checking NodeMon...')
 })
 
 //Route for Register

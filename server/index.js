@@ -1,4 +1,4 @@
-const port = 3000;
+const port = 5000;
 
 const express = require("express");
 const app = express();
@@ -105,6 +105,10 @@ app.get("/api/users/logout", auth, (req, res) => {
     if (err) return res.json({ success: false, err });
     return res.status(200).send({ success: true });
   });
+});
+
+app.get("/api/hello", (req, res) => {
+  res.send("Hello");
 });
 
 app.listen(port, () => {

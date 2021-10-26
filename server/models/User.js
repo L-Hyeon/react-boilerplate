@@ -74,13 +74,13 @@ userSchema.methods.generateToken = function (cb) {
 };
 
 // 토큰을 기준으로 현재 접속중인 유저 찾기
-userSchema.methods.findByToken = function (token, cb) {
+userSchema.statics.findByToken = function (token, cb) {
   var user = this;
   //1. 토큰 디코드
-  jwt.verify(token, "secretToken", function (err, deoded) {
+  jwt.verify(token, "secretToken", function (err, decoded) {
     //ID를 통해 유저 찾기
     //클라이언트 토큰, DB에 보관된 토큰 일치 확인
-    user.findOne({ _id: decoded, token: token }, function (err, user) {
+    user.findOne({ "_id": decoded, "token": token }, function (err, user) {
       if (err) return cb(err);
       cb(null, user);
     });

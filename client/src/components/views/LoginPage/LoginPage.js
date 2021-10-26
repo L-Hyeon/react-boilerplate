@@ -1,4 +1,3 @@
-import { Axios } from "axios";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../../_actions/user_action";
@@ -8,11 +7,11 @@ function LoginPage(props) {
 
   // input태그에 타이핑을 할 때 onChange 이벤트 발생
   // 변경된 값이 ID, Password State에 저장됨
-  const [ID, setID] = useState("");
+  const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
 
-  const onIDHandler = (event) => {
-    setID(event.currentTarget.value);
+  const onEmailHandler = (event) => {
+    setEmail(event.currentTarget.value);
   };
   const onPasswordHandler = (event) => {
     setPassword(event.currentTarget.value);
@@ -22,7 +21,7 @@ function LoginPage(props) {
     event.preventDefault();
 
     let body = {
-      ID: ID,
+      email: Email,
       password: Password,
     };
     dispatch(loginUser(body)).then((response) => {
@@ -51,10 +50,12 @@ function LoginPage(props) {
         }}
         onSubmit={onSubmitHandler}
       >
-        <label>ID</label>
-        <input type="email" value={ID} onChange={onIDHandler} />
+        <label>Email</label>
+        <input type="email" value={Email} onChange={onEmailHandler} />
+
         <label>Password</label>
         <input type="password" value={Password} onChange={onPasswordHandler} />
+
         <br />
         <button type="submit">Login</button>
       </form>

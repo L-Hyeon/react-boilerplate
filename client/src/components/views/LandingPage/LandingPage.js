@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import axios from "axios";
+import { withRouter } from "react-router-dom";
 
 function LandingPage(props) {
   useEffect(() => {
@@ -9,14 +10,14 @@ function LandingPage(props) {
   }, []);
 
   const onClickHandler = () => {
-    axios.get('/api/users/logout').then(response => {
+    axios.get("/api/users/logout").then((response) => {
       if (response.data.success) {
-        props.history.push('/login')
+        props.history.push("/login");
       } else {
-        alert("Error")
+        alert("Error");
       }
-    })
-  }
+    });
+  };
 
   return (
     <div
@@ -30,11 +31,9 @@ function LandingPage(props) {
     >
       <h2>시작 페이지</h2>
 
-      <button onClick={onClickHandler}>
-        Logout
-      </button>
+      <button onClick={onClickHandler}>Logout</button>
     </div>
   );
 }
 
-export default LandingPage;
+export default withRouter(LandingPage);
